@@ -1,5 +1,6 @@
 {
   "name": "boolean-json-eval",
+  "description": "evaluate boolean-json expressions",
   "version": "0.0.0",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "devDependencies": {
