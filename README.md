@@ -4,21 +4,20 @@ var assert = require('assert')
 
 assert(
   evaluate(
-    { variable: 'x' },
-	{ x: true }))
+    'x',
+    { x: true }))
 
 assert(
   evaluate(
     { or: [
-	    { variable: 'a' },
-		{ not: {
-		    variable: 'b' } } ] },
-	{ a: 0,
-	  b: '' }))
+      'a',
+      { not: 'b' } ] },
+    { a: 0,
+      b: '' }))
 
 assert.throws(
   function() {
     evaluate(
-      { variable: 'x' },
-  	{ }) })
+      'x',
+      { }) })
 ```

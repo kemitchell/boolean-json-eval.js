@@ -1,5 +1,10 @@
 function booleanJSONEval(expression, variables) {
-  if ('not' in expression) {
+  if (typeof expression === 'string') {
+    if (expression in variables) {
+      return !!variables[expression] }
+    else {
+      throw new Error('Undefined variable: ' + expression) } }
+  else if ('not' in expression) {
     return !booleanJSONEval(expression.not, variables) }
   else if ('and' in expression) {
     return (
@@ -9,12 +14,6 @@ function booleanJSONEval(expression, variables) {
     return (
       booleanJSONEval(expression.or[0], variables) ||
       booleanJSONEval(expression.or[1], variables)) }
-  else if ('variable' in expression) {
-    var name = expression.variable
-    if (name in variables) {
-      return !!variables[expression.variable] }
-    else {
-      throw new Error('Undefined variable: ' + name) } }
   else {
     throw new Error('Invalid boolean JSON') } }
 
