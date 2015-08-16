@@ -7,6 +7,15 @@
     "defence-cli": "~1.0.1",
     "replace-require-self": "~1.0.0"
   },
+  "keywords": [
+    "algebra",
+    "boolean",
+    "boolean-json",
+    "calculus",
+    "eval",
+    "evaluation",
+    "logic"
+  ],
   "license": "MIT",
   "repository": "kemitchell/boolean-json-eval.js",
   "scripts": {
