@@ -15,7 +15,21 @@ var assert = require('assert')
 
 assert(evaluate('x', { x: true }))
 
-assert(evaluate({ or: [ 'a', { not: 'b' } ] }, { a: 0, b: '' }))
+assert(
+  evaluate(
+    { or:
+      [ 'a',
+        { not: 'b' },
+        'c' ] },
+    { a: false, b: true, c: true }))
+
+assert(
+  evaluate(
+    { and:
+      [ { not: 'a' },
+        { not: { not: { not: 'a' } } },
+        { or: [ 'a', { not: 'a' } ] } ] },
+    { a: false }))
 ```
 
 The function throws an exception if its expression argument references an undefined variable.

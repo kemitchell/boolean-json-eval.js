@@ -1,4 +1,5 @@
 function booleanJSONEval(expression, variables) {
+  var length, index, value, operand
   if (typeof expression === 'string') {
     if (expression in variables) {
       return !!variables[expression] }
@@ -7,13 +8,21 @@ function booleanJSONEval(expression, variables) {
   else if ('not' in expression) {
     return !booleanJSONEval(expression.not, variables) }
   else if ('and' in expression) {
-    return (
-      booleanJSONEval(expression.and[0], variables) &&
-      booleanJSONEval(expression.and[1], variables)) }
+    length = expression.and.length
+    for (index = 0; index < length; index++) {
+      operand = expression.and[index]
+        value = booleanJSONEval(operand, variables)
+        if (!value) {
+          return false } }
+    return true }
   else if ('or' in expression) {
-    return (
-      booleanJSONEval(expression.or[0], variables) ||
-      booleanJSONEval(expression.or[1], variables)) }
+    length = expression.or.length
+    for (index = 0; index < length; index++) {
+      operand = expression.or[index]
+        value = booleanJSONEval(operand, variables)
+        if (value) {
+          return true } }
+    return false }
   else {
     throw new Error('Invalid boolean JSON') } }
 
