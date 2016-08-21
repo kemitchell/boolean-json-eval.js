@@ -1,7 +1,7 @@
 {
   "name": "boolean-json-eval",
   "description": "evaluate boolean-json expressions",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "devDependencies": {
     "defence-cli": "~1.0.1",
