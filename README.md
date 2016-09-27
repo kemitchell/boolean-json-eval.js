@@ -44,3 +44,7 @@ assert.throws(function() {
   evaluate('x', {})
 })
 ```
+
+Build Status
+
+[![Build Status](https://travis-ci.org/kemitchell/boolean-json-eval.js.svg?branch=master)](https://travis-ci.org/kemitchell/boolean-json-eval.js)
