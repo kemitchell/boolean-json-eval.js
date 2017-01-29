@@ -1,8 +1,9 @@
 module.exports = function booleanJSONEval (expression, variables) {
-  var length, index, value, operand
+  var length, index, value, operand, variable
   if (typeof expression === 'string') {
     if (expression in variables) {
-      return !!variables[expression]
+      variable = variables[expression]
+      return !!(typeof variable === 'function' ? variable() : variable)
     } else {
       throw new Error('Undefined variable: ' + expression)
     }
