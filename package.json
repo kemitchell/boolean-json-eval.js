@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": "kemitchell/boolean-json-eval.js",
   "scripts": {
-    "test": "node test.js",
+    "test": "defence README.md | replace-require-self | node",
     "lint": "standard"
   }
 }
